@@ -703,20 +703,21 @@
           </div>
         </div>
       </div>
+<!-- Chỉ cần thay đổi phần script bên dưới trong file của bạn -->
 <script>
-$(document).ready(function(){
-  var i = 0;
-  var txt = HAPPY BIRTHDAY TO YOU . ; 
-  var speed = 100;
+var i = 0;
+var txt = "HAPPY BIRTHDAY TO YOU :3.";
+var speed = 100;
 
-  function type1() {
-    if (i < txt.length) {
-      document.getElementById("demo").innerHTML += txt.charAt(i);
-      i++;
-      setTimeout(type1, speed);
-    }
+function type1() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(type1, speed);
   }
+}
 
+$(document).ready(function(){
   $('.start').click(function () {
     $('.stage1').fadeOut();
     fire_modal(
@@ -866,7 +867,12 @@ $(document).ready(function(){
     }, 2200);
   }
 
+  // Bỏ onclick trong HTML, dùng jQuery event
   $('.add').click(function () {
+    // reset i khi gọi lại, nếu muốn gõ lại chuỗi
+    i = 0;
+    document.getElementById("demo").innerHTML = "";
+    type1();
     fin();
   });
 
@@ -875,5 +881,6 @@ $(document).ready(function(){
   });
 });
 </script>
+
 </body>
 </html>
